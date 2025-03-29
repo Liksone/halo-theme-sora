@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html 
+xmlns:th="https://www.thymeleaf.org"
+th:replace="~{module/macro :: html(title = ${category.spec.displayName} + '-' + ${site.title}, head=null, content = ~{::content})}"
+>
+
+    <th:block th:fragment="content">
+      <main>
+        <div class="wrap min">
+          <section class="home-title">
+            <h1 th:text="'&quot;' + ${category.spec.displayName} + '&quot;'"></h1>
+            <span th:text="${category.spec.description}"></span>
+          </section>
+    
+          <!-- 文章列表 -->
+          <section class="home-posts">
+            <th:block th:each="post : ${posts.items}">
+              <div class="post-item">
+                <h2>
+                  <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
+                </h2>
+                <p th:text="${post.spec.excerpt.raw}"></p>
+                <div class="post-meta">
+                  <time class="date" th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"></time>
+                  <span th:if="${not #lists.isEmpty(post.categories)}" th:each="category : ${post.categories}"
+                    class="category" th:text="${category.spec.displayName}"></span>
+    
+                  <span class="comments" th:text="${post.stats.comment} + ' ℃'">0 ℃</span>
+                </div>
+              </div>
+            </th:block>
+          </section>
+    
+          <!-- 分页 -->
+          <section class="page-navigator">
+            <a th:if="${posts.hasPrevious()}" class="extend prev" rel="prev" th:href="@{${posts.prevUrl}}">«</a>
+            <span class="page-number current" th:text="${posts.page}"></span>
+            <a th:if="${posts.hasNext()}" class="extend next" rel="next" th:href="@{${posts.nextUrl}}">»</a>
+          </section>
+    
+        </div>
+
+      </main>
+    </th:block>
+
+</html>

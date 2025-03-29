@@ -1,0 +1,487 @@
+/* 
+ *     Typora Theme - Lapis    /    Author - YiNN 
+ *     https://github.com/YiNNx/typora-theme-lapis
+ */
+
+:root {
+  --text-color: #40464f;
+  --secendary-text-color: #777;
+  /* Text */
+  --primary-color: #4870ac;
+  --primary2-color: #385684;
+  --primary3-color: #7fa5e3;
+  --primary4-color: rgba(72, 112, 172, 0.02);
+  /* Primary Color */
+  --bg-color: #ffffff;
+  --side-bar-bg-color: var(--bg-color);
+  /* Background */
+
+  --marker-color: #a2b6d4;
+  /* List Marker */
+  --source-color: #a8a8a9;
+  /* for comment / link source */
+  --highlight-color: #ffffb5c2;
+  /* Highlight */
+  --header-span-color: var(--primary-color);
+  /* h2 Span Color */
+  --block-bg-color: #f6f8fa;
+  /* Block Background */
+  --img-shadow-color: #e3e8f0;
+
+  /* Overwrite of Typora Base Color */
+  --search-hit-bg-color: var(--select-text-bg-color);
+  --search-select-bg-color: #5bb3ff;
+  --control-text-hover-color: #a2b6d4;
+  --rawblock-edit-panel-bd: var(--block-bg-color);
+  --item-hover-bg-color: rgb(246 248 250);
+  --active-file-bg-color: var(--block-bg-color);
+
+  /* Comment Plugin */
+  --halo-comment-widget-component-form-button-submit-bg-color: var(
+    --primary-color
+  );
+  --halo-comment-widget-component-form-button-submit-border-color: var(
+    --primary-color
+  );
+
+  /* HyperLink Plugin */
+  --halo-hyperlink-card-link-color: var(--secendary-text-color);
+  --halo-hyperlink-card-border-hover-color: var(--primary3-color);
+}
+
+@media print {
+  :root {
+    --text-color: rgb(0, 0, 0);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+  }
+}
+
+/*
+ * Font-face for Cantarell, Source Han Serif CN and JetBrains Mono
+ */
+
+@font-face {
+  font-family: "Cantarell";
+  src: url("fonts/Cantarell-VF-fixed.otf");
+}
+
+/* @font-face {
+    font-family: "JetBrainsMono";
+    src: url('fonts/JetBrainsMono-Regular.ttf');
+} */
+
+/* @font-face {
+    font-family: "SourceHanSerifCN";
+    src: url('lapis/SourceHanSerifCN-Medium.otf');
+}
+
+@font-face {
+    font-family: "SourceHanSerifCN";
+    src: url('lapis/SourceHanSerifCN-Bold.otf');
+    font-weight: bold;
+} */
+
+/*
+ * Basic Style
+ */
+
+.write {
+  /* max-width: 950px; */
+  /* font-size: 1.1rem; */
+  color: var(--text-color);
+  line-height: 1.6;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: justify;
+
+  font-family: "Cantarell";
+  /* margin-bottom: 20rem; */
+}
+
+.searchpanel-search-option-btn {
+  position: absolute;
+  width: 24px;
+  height: 16px;
+  right: 5px;
+  top: 5px;
+  z-index: 99;
+  cursor: pointer;
+  margin-top: 1px;
+  padding: 1px;
+  border-radius: 3px;
+  line-height: 10px;
+  border: 1px solid #ddd;
+  border-color: var(--active-toggle-btn-color);
+}
+
+/* Strong */
+
+.write strong {
+  color: var(--primary-color);
+}
+
+/* Link */
+
+.write a {
+  color: var(--primary-color);
+  font-family: "Cantarell";
+}
+
+.write .md-p a,
+.write .md-heading a,
+[md-inline="url"],
+[md-inline="link"] > .md-content {
+  word-wrap: break-word;
+  text-decoration: underline solid;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.write h2.md-heading a {
+  text-decoration: underline;
+  border-bottom: 0;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.2px;
+}
+
+/* mark */
+
+mark {
+  background: var(--highlight-color);
+  padding: 1px 0.15rem;
+  border-radius: 1px;
+  color: inherit;
+}
+
+/* 
+ * Paragraph
+ */
+
+.write + p,
+.write blockquote p {
+  /* font-size: 1.1rem; */
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin: 0;
+  line-height: 1.8rem;
+  color: var(--text-color);
+}
+
+/*
+ * Header
+ */
+
+.write h4,
+.write h5,
+.write h6 {
+  font-weight: normal;
+}
+
+.write h1,
+.write h2,
+.write h3,
+.write h4,
+.write h5,
+.write h6 {
+  font-family: "Cantarell";
+  padding: 0px;
+  color: var(--primary-color);
+}
+
+.write h1 {
+  text-align: center;
+}
+
+.write h2 {
+  padding: 1px 12.5px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.write h2,
+.write h2 code {
+  background-color: var(--header-span-color);
+}
+
+.write h2,
+.write h2 a,
+.write h2 code,
+.write h2 strong,
+.write h2 script {
+  color: var(--bg-color);
+}
+
+.write h2 a {
+  border-bottom-color: var(--bg-color) !important;
+}
+
+/* .write h1 {
+    font-size: 1.8rem;
+}
+
+.write h2 {
+    font-size: 1.5rem;
+}
+
+.write h3 {
+    font-size: 1.4rem;
+}
+
+.write h4 {
+    font-size: 1.2rem;
+}
+
+.write h5 {
+    font-size: 1.1rem;
+}
+
+.write h6 {
+    font-size: 1.1rem;
+} */
+
+.write h1 {
+  padding-top: 0.9rem;
+  margin-bottom: 2.3rem;
+}
+
+.write h2 {
+  margin: 0.3em 0;
+}
+
+.write h3 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.write h4 {
+  margin: 0.8em 0 0.8em;
+}
+
+.write h5 {
+  margin: 0.6em 0 0.6em;
+}
+
+.write h6 {
+  margin: 0.4em 0 0.4em;
+}
+
+blockquote h3.md-focus:before,
+blockquote h4.md-focus:before,
+blockquote h5.md-focus:before,
+blockquote h6.md-focus:before {
+  left: -1.3rem;
+}
+
+/*
+ * List
+ */
+
+::marker {
+  font-weight: bold;
+  color: var(--marker-color);
+}
+
+.write ul,
+.write ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.write ul {
+  list-style-type: disc;
+}
+
+.write em {
+  padding: 0 3px 0 0;
+}
+
+.write ul ul {
+  list-style-type: square;
+}
+
+.write ol {
+  list-style-type: decimal;
+}
+
+.write li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.7rem;
+  text-align: justify;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/*
+ * Quote
+ */
+
+.write blockquote {
+  display: block;
+  /* font-size: .9em; */
+  overflow: auto;
+  border-left: 3px solid var(--primary-color);
+  padding: 15px 30px 15px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: var(--block-bg-color);
+}
+
+/*
+ * Inline code
+ */
+
+.write code,
+.shiki-magic-move-container {
+  color: var(--primary-color);
+  font-size: 94%;
+  font-weight: normal;
+  word-wrap: break-word;
+  padding: 2px 4px 2px;
+  border-radius: 4px;
+  background-color: var(--block-bg-color);
+  font-family: JetBrainsMono, Consolas, Monaco, "Andale Mono", monospace;
+  word-break: break-all;
+}
+
+/*
+ * Img
+ */
+
+.write img {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.write p > .md-image:only-child:not(.md-img-error) img,
+.write p > img:only-child {
+  filter: drop-shadow(var(--img-shadow-color) 0px 6px 6px);
+  display: block;
+  margin: 0 auto;
+  /* padding: 1rem; */
+}
+
+/*
+ * Table
+ */
+.write table {
+  display: table;
+  text-align: justify;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  /* font-size: 1em; */
+  margin: 0px 0px 20px;
+  width: 100%;
+}
+
+.write tbody {
+  border: 0;
+}
+
+.write table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.write table tr th,
+.write table tr td {
+  /* font-size: 1rem; */
+  border: 1px solid #d9dfe4;
+  padding: 5px 10px;
+  text-align: justify;
+}
+
+.write table tr th {
+  font-family: "Cantarell";
+  text-align: center;
+  min-width: 10rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.write table tr td:hover,
+.write table tr th:hover {
+  background-color: var(--block-bg-color);
+}
+
+table td {
+  min-width: 32px;
+}
+
+/*
+ * Dividing line
+ */
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid #eef2f5;
+  border-radius: 2px;
+}
+
+/* Checkbox */
+
+.write input[type="checkbox"] {
+  width: 0;
+}
+
+.task-list-item input::before {
+  content: "";
+  display: inline-block;
+  width: 1.0125rem;
+  height: 1.0125rem;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid var(--marker-color);
+  border-radius: 1.2rem;
+  background-color: #fdfdfd;
+  margin-left: -0.1rem;
+  margin-right: 0.1rem;
+  margin-top: -0.6rem;
+}
+
+.task-list-item input:checked::before {
+  content: "✓";
+  font-weight: bold;
+  -webkit-text-stroke: 1px var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+  font-size: 0.75rem;
+  line-height: 0.8rem;
+}
+
+blockquote .task-list-item input::before {
+  margin-top: 0.2rem;
+}
+
+/*
+ * Scrollbar
+ */
+
+#outline-content::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+#file-library::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(179, 179, 179, 0.425);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}

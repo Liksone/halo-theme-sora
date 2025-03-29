@@ -1,0 +1,13 @@
+<ul th:fragment="next (categories)">
+    <li th:fragment="single (categories)" th:each="category : ${categories}">
+        <a th:href="@{${category.status.permalink}}" th:text="${category.spec.displayName}">
+        </a>
+        <th:block th:if="${category.spec.description} != null and ${category.spec.description} != ''">
+            <span th:text="' - ' + ${category.spec.description}"></span>
+        </th:block>
+
+        <th:block th:if="${not #lists.isEmpty(category.children)}">
+            <th:block th:replace="~{module/category-tree :: next (categories=${category.children})}"></th:block>
+        </th:block>
+    </li>
+</ul>

@@ -1,0 +1,7 @@
+<nav class="head-menu">
+    <th:block th:each="menuItem : ${menuFinder.getPrimary().menuItems}">
+        <a th:href="@{${menuItem.status.href}}" target="_self" th:text="${menuItem.status.displayName}"></a>
+    </th:block>
+</nav>
+
+  

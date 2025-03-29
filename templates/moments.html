@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html 
+xmlns:th="https://www.thymeleaf.org"
+th:replace="~{module/macro :: html(title =  '瞬间 - ' + ${site.title}, head=null, content = ~{::content})}"
+>
+
+    <th:block th:fragment="content">
+      <main>
+        <div class="wrap min">
+          <section class="home-title">
+            <h1>"瞬间"</h1>
+          </section>
+    
+          <!-- 瞬间列表 -->
+          <!-- 啊，好丑啊，不想要 -->
+          <section class="home-posts">
+            <th:block th:each="moment : ${moments.items}">
+              <div class="post-item">
+                <div class="post-meta">
+                  <time class="date" th:text="${#dates.format(moment.spec.releaseTime,'yyyy-MM-dd')}"></time>
+                </div>
+                <p th:utext="${moment.spec.content.html}"></p>
+              </div>
+            </th:block>
+          </section>
+    
+          <!-- 分页 -->
+          <section class="page-navigator">
+            <a th:if="${moments.hasPrevious()}" class="extend prev" rel="prev" th:href="@{${moments.prevUrl}}">«</a>
+            <span class="page-number current" th:text="${moments.page}"></span>
+            <a th:if="${moments.hasNext()}" class="extend next" rel="next" th:href="@{${moments.nextUrl}}">»</a>
+          </section>
+    
+        </div>
+
+      </main>
+    </th:block>
+
+</html>

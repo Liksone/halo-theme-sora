@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="~{module/layout :: head(null)}"> </head>
+
+  <body>
+    <header th:replace="~{module/header}"></header>
+
+    <article>
+      <div class="post-title" th:text="${post.spec.title}"></div>
+
+      <div
+        class="post-meta mt-2 mb-8 text-center text-sm"
+        style="text-align: center; margin: 1rem"
+      >
+        <span class="icon-[mdi--calendar-outline]"></span>
+        <time
+          th:text="${#dates.format(post.spec.publishTime, 'yyyy.MM.dd')}"
+        ></time>
+        <!-- 更新时间 -->
+        <!-- <span> -->
+        <!--   <i class="far fa-calendar-check"></i> -->
+        <!-- </span> -->
+        <!-- <time -->
+        <!--   th:text="${#dates.format(post.spec.publishTime, 'yyyy.MM.dd')}" -->
+        <!-- ></time> -->
+
+        <th:block th:if="${not #lists.isEmpty(post.categories)}">
+          <span class="category">
+            <th:block th:each="category : ${post.categories}">
+              <a
+                th:href="${category.status.permalink}"
+                th:text="${category.spec.displayName}"
+              ></a>
+            </th:block>
+          </span>
+        </th:block>
+
+        <span class="icon-[uil--chart-line]"></span>
+        <span class="view" th:text="${post.stats.visit}"></span>
+      </div>
+
+      <th:block th:utext="${post.content.content}"></th:block>
+
+      <div th:if="${haloCommentEnabled}">
+        <halo:comment
+          group="content.halo.run"
+          kind="Post"
+          th:attr="name=${post.metadata.name}"
+        />
+      </div>
+    </article>
+
+    <section>
+      <div class="buttons">
+        <a class="to-top" href="#"></a>
+      </div>
+    </section>
+
+    <footer th:replace="~{module/footer}"></footer>
+  </body>
+</html>

@@ -1,0 +1,591 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-sora-setting
+spec:
+  forms:
+    - group: genernal
+      label: 基本设置
+      formSchema:
+        - $formkit: text
+          name: icp
+          label: ICP 备案号
+          placeholder: "填入 ICP 备案号，没有则不填。"
+        - $formkit: radio
+          name: KaTex_plugin
+          label: KaTex 公式渲染
+          value: 1
+          options: 
+            - label: 开启
+              value: 1
+            - label: 关闭
+              value: 0
+        - $formkit: select
+          name: code_css
+          label: 代码样式
+          value: "github.min.css"
+          options: 
+            - value: a11y-dark.min.css
+              label: a11y-dark
+            - value: a11y-light.min.css
+              label: a11y-light
+            - value: agate.min.css
+              label: agate
+            - value: an-old-hope.min.css
+              label: an-old-hope
+            - value: androidstudio.min.css
+              label: androidstudio
+            - value: arduino-light.min.css
+              label: arduino-light
+            - value: arta.min.css
+              label: arta
+            - value: ascetic.min.css
+              label: ascetic
+            - value: atom-one-dark-reasonable.min.css
+              label: atom-one-dark-reasonable
+            - value: atom-one-dark.min.css
+              label: atom-one-dark
+            - value: atom-one-light.min.css
+              label: atom-one-light
+            - value: base16/3024.min.css
+              label: base16/3024
+            - value: base16/apathy.min.css
+              label: base16/apathy
+            - value: base16/apprentice.min.css
+              label: base16/apprentice
+            - value: base16/ashes.min.css
+              label: base16/ashes
+            - value: base16/atelier-cave-light.min.css
+              label: base16/atelier-cave-light
+            - value: base16/atelier-cave.min.css
+              label: base16/atelier-cave
+            - value: base16/atelier-dune-light.min.css
+              label: base16/atelier-dune-light
+            - value: base16/atelier-dune.min.css
+              label: base16/atelier-dune
+            - value: base16/atelier-estuary-light.min.css
+              label: base16/atelier-estuary-light
+            - value: base16/atelier-estuary.min.css
+              label: base16/atelier-estuary
+            - value: base16/atelier-forest-light.min.css
+              label: base16/atelier-forest-light
+            - value: base16/atelier-forest.min.css
+              label: base16/atelier-forest
+            - value: base16/atelier-heath-light.min.css
+              label: base16/atelier-heath-light
+            - value: base16/atelier-heath.min.css
+              label: base16/atelier-heath
+            - value: base16/atelier-lakeside-light.min.css
+              label: base16/atelier-lakeside-light
+            - value: base16/atelier-lakeside.min.css
+              label: base16/atelier-lakeside
+            - value: base16/atelier-plateau-light.min.css
+              label: base16/atelier-plateau-light
+            - value: base16/atelier-plateau.min.css
+              label: base16/atelier-plateau
+            - value: base16/atelier-savanna-light.min.css
+              label: base16/atelier-savanna-light
+            - value: base16/atelier-savanna.min.css
+              label: base16/atelier-savanna
+            - value: base16/atelier-seaside-light.min.css
+              label: base16/atelier-seaside-light
+            - value: base16/atelier-seaside.min.css
+              label: base16/atelier-seaside
+            - value: base16/atelier-sulphurpool-light.min.css
+              label: base16/atelier-sulphurpool-light
+            - value: base16/atelier-sulphurpool.min.css
+              label: base16/atelier-sulphurpool
+            - value: base16/atlas.min.css
+              label: base16/atlas
+            - value: base16/bespin.min.css
+              label: base16/bespin
+            - value: base16/black-metal-bathory.min.css
+              label: base16/black-metal-bathory
+            - value: base16/black-metal-burzum.min.css
+              label: base16/black-metal-burzum
+            - value: base16/black-metal-dark-funeral.min.css
+              label: base16/black-metal-dark-funeral
+            - value: base16/black-metal-gorgoroth.min.css
+              label: base16/black-metal-gorgoroth
+            - value: base16/black-metal-immortal.min.css
+              label: base16/black-metal-immortal
+            - value: base16/black-metal-khold.min.css
+              label: base16/black-metal-khold
+            - value: base16/black-metal-marduk.min.css
+              label: base16/black-metal-marduk
+            - value: base16/black-metal-mayhem.min.css
+              label: base16/black-metal-mayhem
+            - value: base16/black-metal-nile.min.css
+              label: base16/black-metal-nile
+            - value: base16/black-metal-venom.min.css
+              label: base16/black-metal-venom
+            - value: base16/black-metal.min.css
+              label: base16/black-metal
+            - value: base16/brewer.min.css
+              label: base16/brewer
+            - value: base16/bright.min.css
+              label: base16/bright
+            - value: base16/brogrammer.min.css
+              label: base16/brogrammer
+            - value: base16/brush-trees-dark.min.css
+              label: base16/brush-trees-dark
+            - value: base16/brush-trees.min.css
+              label: base16/brush-trees
+            - value: base16/chalk.min.css
+              label: base16/chalk
+            - value: base16/circus.min.css
+              label: base16/circus
+            - value: base16/classic-dark.min.css
+              label: base16/classic-dark
+            - value: base16/classic-light.min.css
+              label: base16/classic-light
+            - value: base16/codeschool.min.css
+              label: base16/codeschool
+            - value: base16/colors.min.css
+              label: base16/colors
+            - value: base16/cupcake.min.css
+              label: base16/cupcake
+            - value: base16/cupertino.min.css
+              label: base16/cupertino
+            - value: base16/danqing.min.css
+              label: base16/danqing
+            - value: base16/darcula.min.css
+              label: base16/darcula
+            - value: base16/dark-violet.min.css
+              label: base16/dark-violet
+            - value: base16/darkmoss.min.css
+              label: base16/darkmoss
+            - value: base16/darktooth.min.css
+              label: base16/darktooth
+            - value: base16/decaf.min.css
+              label: base16/decaf
+            - value: base16/default-dark.min.css
+              label: base16/default-dark
+            - value: base16/default-light.min.css
+              label: base16/default-light
+            - value: base16/dirtysea.min.css
+              label: base16/dirtysea
+            - value: base16/dracula.min.css
+              label: base16/dracula
+            - value: base16/edge-dark.min.css
+              label: base16/edge-dark
+            - value: base16/edge-light.min.css
+              label: base16/edge-light
+            - value: base16/eighties.min.css
+              label: base16/eighties
+            - value: base16/embers.min.css
+              label: base16/embers
+            - value: base16/equilibrium-dark.min.css
+              label: base16/equilibrium-dark
+            - value: base16/equilibrium-gray-dark.min.css
+              label: base16/equilibrium-gray-dark
+            - value: base16/equilibrium-gray-light.min.css
+              label: base16/equilibrium-gray-light
+            - value: base16/equilibrium-light.min.css
+              label: base16/equilibrium-light
+            - value: base16/espresso.min.css
+              label: base16/espresso
+            - value: base16/eva-dim.min.css
+              label: base16/eva-dim
+            - value: base16/eva.min.css
+              label: base16/eva
+            - value: base16/flat.min.css
+              label: base16/flat
+            - value: base16/framer.min.css
+              label: base16/framer
+            - value: base16/fruit-soda.min.css
+              label: base16/fruit-soda
+            - value: base16/gigavolt.min.css
+              label: base16/gigavolt
+            - value: base16/github.min.css
+              label: base16/github
+            - value: base16/google-dark.min.css
+              label: base16/google-dark
+            - value: base16/google-light.min.css
+              label: base16/google-light
+            - value: base16/grayscale-dark.min.css
+              label: base16/grayscale-dark
+            - value: base16/grayscale-light.min.css
+              label: base16/grayscale-light
+            - value: base16/green-screen.min.css
+              label: base16/green-screen
+            - value: base16/gruvbox-dark-hard.min.css
+              label: base16/gruvbox-dark-hard
+            - value: base16/gruvbox-dark-medium.min.css
+              label: base16/gruvbox-dark-medium
+            - value: base16/gruvbox-dark-pale.min.css
+              label: base16/gruvbox-dark-pale
+            - value: base16/gruvbox-dark-soft.min.css
+              label: base16/gruvbox-dark-soft
+            - value: base16/gruvbox-light-hard.min.css
+              label: base16/gruvbox-light-hard
+            - value: base16/gruvbox-light-medium.min.css
+              label: base16/gruvbox-light-medium
+            - value: base16/gruvbox-light-soft.min.css
+              label: base16/gruvbox-light-soft
+            - value: base16/hardcore.min.css
+              label: base16/hardcore
+            - value: base16/harmonic16-dark.min.css
+              label: base16/harmonic16-dark
+            - value: base16/harmonic16-light.min.css
+              label: base16/harmonic16-light
+            - value: base16/heetch-dark.min.css
+              label: base16/heetch-dark
+            - value: base16/heetch-light.min.css
+              label: base16/heetch-light
+            - value: base16/helios.min.css
+              label: base16/helios
+            - value: base16/hopscotch.min.css
+              label: base16/hopscotch
+            - value: base16/horizon-dark.min.css
+              label: base16/horizon-dark
+            - value: base16/horizon-light.min.css
+              label: base16/horizon-light
+            - value: base16/humanoid-dark.min.css
+              label: base16/humanoid-dark
+            - value: base16/humanoid-light.min.css
+              label: base16/humanoid-light
+            - value: base16/ia-dark.min.css
+              label: base16/ia-dark
+            - value: base16/ia-light.min.css
+              label: base16/ia-light
+            - value: base16/icy-dark.min.css
+              label: base16/icy-dark
+            - value: base16/ir-black.min.css
+              label: base16/ir-black
+            - value: base16/isotope.min.css
+              label: base16/isotope
+            - value: base16/kimber.min.css
+              label: base16/kimber
+            - value: base16/london-tube.min.css
+              label: base16/london-tube
+            - value: base16/macintosh.min.css
+              label: base16/macintosh
+            - value: base16/marrakesh.min.css
+              label: base16/marrakesh
+            - value: base16/materia.min.css
+              label: base16/materia
+            - value: base16/material-darker.min.css
+              label: base16/material-darker
+            - value: base16/material-lighter.min.css
+              label: base16/material-lighter
+            - value: base16/material-palenight.min.css
+              label: base16/material-palenight
+            - value: base16/material-vivid.min.css
+              label: base16/material-vivid
+            - value: base16/material.min.css
+              label: base16/material
+            - value: base16/mellow-purple.min.css
+              label: base16/mellow-purple
+            - value: base16/mexico-light.min.css
+              label: base16/mexico-light
+            - value: base16/mocha.min.css
+              label: base16/mocha
+            - value: base16/monokai.min.css
+              label: base16/monokai
+            - value: base16/nebula.min.css
+              label: base16/nebula
+            - value: base16/nord.min.css
+              label: base16/nord
+            - value: base16/nova.min.css
+              label: base16/nova
+            - value: base16/ocean.min.css
+              label: base16/ocean
+            - value: base16/oceanicnext.min.css
+              label: base16/oceanicnext
+            - value: base16/one-light.min.css
+              label: base16/one-light
+            - value: base16/onedark.min.css
+              label: base16/onedark
+            - value: base16/outrun-dark.min.css
+              label: base16/outrun-dark
+            - value: base16/papercolor-dark.min.css
+              label: base16/papercolor-dark
+            - value: base16/papercolor-light.min.css
+              label: base16/papercolor-light
+            - value: base16/paraiso.min.css
+              label: base16/paraiso
+            - value: base16/pasque.min.css
+              label: base16/pasque
+            - value: base16/phd.min.css
+              label: base16/phd
+            - value: base16/pico.min.css
+              label: base16/pico
+            - value: base16/pop.min.css
+              label: base16/pop
+            - value: base16/porple.min.css
+              label: base16/porple
+            - value: base16/qualia.min.css
+              label: base16/qualia
+            - value: base16/railscasts.min.css
+              label: base16/railscasts
+            - value: base16/rebecca.min.css
+              label: base16/rebecca
+            - value: base16/ros-pine-dawn.min.css
+              label: base16/ros-pine-dawn
+            - value: base16/ros-pine-moon.min.css
+              label: base16/ros-pine-moon
+            - value: base16/ros-pine.min.css
+              label: base16/ros-pine
+            - value: base16/sagelight.min.css
+              label: base16/sagelight
+            - value: base16/sandcastle.min.css
+              label: base16/sandcastle
+            - value: base16/seti-ui.min.css
+              label: base16/seti-ui
+            - value: base16/shapeshifter.min.css
+              label: base16/shapeshifter
+            - value: base16/silk-dark.min.css
+              label: base16/silk-dark
+            - value: base16/silk-light.min.css
+              label: base16/silk-light
+            - value: base16/snazzy.min.css
+              label: base16/snazzy
+            - value: base16/solar-flare-light.min.css
+              label: base16/solar-flare-light
+            - value: base16/solar-flare.min.css
+              label: base16/solar-flare
+            - value: base16/solarized-dark.min.css
+              label: base16/solarized-dark
+            - value: base16/solarized-light.min.css
+              label: base16/solarized-light
+            - value: base16/spacemacs.min.css
+              label: base16/spacemacs
+            - value: base16/summercamp.min.css
+              label: base16/summercamp
+            - value: base16/summerfruit-dark.min.css
+              label: base16/summerfruit-dark
+            - value: base16/summerfruit-light.min.css
+              label: base16/summerfruit-light
+            - value: base16/synth-midnight-terminal-dark.cs
+              label: base16/synth-midnight-terminal-dark
+            - value: base16/synth-midnight-terminal-dark.min.css
+              label: base16/synth-midnight-terminal-dark
+            - value: base16/synth-midnight-terminal-light.cs
+              label: base16/synth-midnight-terminal-light
+            - value: base16/synth-midnight-terminal-light.min.css
+              label: base16/synth-midnight-terminal-light
+            - value: base16/tango.min.css
+              label: base16/tango
+            - value: base16/tender.min.css
+              label: base16/tender
+            - value: base16/tomorrow-night.min.css
+              label: base16/tomorrow-night
+            - value: base16/tomorrow.min.css
+              label: base16/tomorrow
+            - value: base16/twilight.min.css
+              label: base16/twilight
+            - value: base16/unikitty-dark.min.css
+              label: base16/unikitty-dark
+            - value: base16/unikitty-light.min.css
+              label: base16/unikitty-light
+            - value: base16/vulcan.min.css
+              label: base16/vulcan
+            - value: base16/windows-10-light.min.css
+              label: base16/windows-10-light
+            - value: base16/windows-10.min.css
+              label: base16/windows-10
+            - value: base16/windows-95-light.min.css
+              label: base16/windows-95-light
+            - value: base16/windows-95.min.css
+              label: base16/windows-95
+            - value: base16/windows-high-contrast-light.min.css
+              label: base16/windows-high-contrast-light
+            - value: base16/windows-high-contrast.min.css
+              label: base16/windows-high-contrast
+            - value: base16/windows-nt-light.min.css
+              label: base16/windows-nt-light
+            - value: base16/windows-nt.min.css
+              label: base16/windows-nt
+            - value: base16/woodland.min.css
+              label: base16/woodland
+            - value: base16/xcode-dusk.min.css
+              label: base16/xcode-dusk
+            - value: base16/zenburn.min.css
+              label: base16/zenburn
+            - value: brown-paper.min.css
+              label: brown-paper
+            - value: codepen-embed.min.css
+              label: codepen-embed
+            - value: color-brewer.min.css
+              label: color-brewer
+            - value: dark.min.css
+              label: dark
+            - value: default.min.css
+              label: default
+            - value: devibeans.min.css
+              label: devibeans
+            - value: docco.min.css
+              label: docco
+            - value: far.min.css
+              label: far
+            - value: felipec.min.css
+              label: felipec
+            - value: foundation.min.css
+              label: foundation
+            - value: github-dark-dimmed.min.css
+              label: github-dark-dimmed
+            - value: github-dark.min.css
+              label: github-dark
+            - value: github.min.css
+              label: github
+            - value: gml.min.css
+              label: gml
+            - value: googlecode.min.css
+              label: googlecode
+            - value: gradient-dark.min.css
+              label: gradient-dark
+            - value: gradient-light.min.css
+              label: gradient-light
+            - value: grayscale.min.css
+              label: grayscale
+            - value: hybrid.min.css
+              label: hybrid
+            - value: idea.min.css
+              label: idea
+            - value: intellij-light.min.css
+              label: intellij-light
+            - value: ir-black.min.css
+              label: ir-black
+            - value: isbl-editor-dark.min.css
+              label: isbl-editor-dark
+            - value: isbl-editor-light.min.css
+              label: isbl-editor-light
+            - value: kimbie-dark.min.css
+              label: kimbie-dark
+            - value: kimbie-light.min.css
+              label: kimbie-light
+            - value: lightfair.min.css
+              label: lightfair
+            - value: lioshi.min.css
+              label: lioshi
+            - value: magula.min.css
+              label: magula
+            - value: mono-blue.min.css
+              label: mono-blue
+            - value: monokai-sublime.min.css
+              label: monokai-sublime
+            - value: monokai.min.css
+              label: monokai
+            - value: night-owl.min.css
+              label: night-owl
+            - value: nnfx-dark.min.css
+              label: nnfx-dark
+            - value: nnfx-light.min.css
+              label: nnfx-light
+            - value: nord.min.css
+              label: nord
+            - value: obsidian.min.css
+              label: obsidian
+            - value: panda-syntax-dark.min.css
+              label: panda-syntax-dark
+            - value: panda-syntax-light.min.css
+              label: panda-syntax-light
+            - value: paraiso-dark.min.css
+              label: paraiso-dark
+            - value: paraiso-light.min.css
+              label: paraiso-light
+            - value: pojoaque.min.css
+              label: pojoaque
+            - value: purebasic.min.css
+              label: purebasic
+            - value: qtcreator-dark.min.css
+              label: qtcreator-dark
+            - value: qtcreator-light.min.css
+              label: qtcreator-light
+            - value: rainbow.min.css
+              label: rainbow
+            - value: routeros.min.css
+              label: routeros
+            - value: school-book.min.css
+              label: school-book
+            - value: shades-of-purple.min.css
+              label: shades-of-purple
+            - value: srcery.min.css
+              label: srcery
+            - value: stackoverflow-dark.min.css
+              label: stackoverflow-dark
+            - value: stackoverflow-light.min.css
+              label: stackoverflow-light
+            - value: sunburst.min.css
+              label: sunburst
+            - value: tokyo-night-dark.min.css
+              label: tokyo-night-dark
+            - value: tokyo-night-light.min.css
+              label: tokyo-night-light
+            - value: tomorrow-night-blue.min.css
+              label: tomorrow-night-blue
+            - value: tomorrow-night-bright.min.css
+              label: tomorrow-night-bright
+            - value: vs.min.css
+              label: vs
+            - value: vs2015.min.css
+              label: vs2015
+            - value: xcode.min.css
+              label: xcode
+            - value: xt256.min.css
+              label: xt256
+        - $formkit: radio
+          name: night
+          label: 自动切换夜间模式
+          value: 1
+          options: 
+            - label: 开启
+              value: 1
+            - label: 关闭
+              value: 0
+        - $formkit: radio
+          name: copyright
+          label: 复制的时候弹出保留原站链接说明
+          value: 1
+          options: 
+            - label: 开启
+              value: 1
+            - label: 关闭
+              value: 0
+    - group: social
+      label: 社交链接
+      formSchema:
+        - $formkit: repeater
+          name: social_media
+          label: 社交媒体
+          value: []
+          children:
+            - $formkit: select
+              name: social_type
+              label: 类型
+              options:
+                - label: 电子邮箱
+                  value: email
+                - label: 腾讯 QQ
+                  value: qq
+                - label: 新浪微博
+                  value: weibo
+                - label: Telegram
+                  value: telegram
+                - label: Facebook
+                  value: facebook
+                - label: Instagram
+                  value: instagram
+                - label: Twitter
+                  value: twitter
+                - label: GitHub
+                  value: github
+                - label: Gitee
+                  value: gitee
+            - $formkit: text
+              name: name
+              label: 名称
+            - $formkit: text
+              name: url
+              label: 账号/地址
+              validation: "required"
+        - $formkit: radio
+          name: RSS
+          label: RSS
+          value: 1
+          options: 
+            - label: 开启
+              value: 1
+            - label: 关闭
+              value: 0

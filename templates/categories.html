@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{module/macro :: html(title = '分类列表' + ${site.title}, head = null, content = ~{::content})}">
+
+<th:block th:fragment="content">
+
+    <main>
+        <div class="wrap min">
+            <section class="page-title">
+                <h1>分类</h1>
+            </section>
+
+            <section class="post-content">
+
+                <th:block th:if="${not #lists.isEmpty(categories)}">
+                    <ul>
+                        <li th:replace="~{module/category-tree :: single(categories=${categories})}" />
+                    </ul>
+                </th:block>
+            </section>
+        </div>
+    </main>
+
+</th:block>
+
+
+
+</html>

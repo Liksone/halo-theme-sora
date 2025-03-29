@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{module/macro :: html(title = '链接 - ' +  ${site.title}, head=null, content = ~{::content})}">
+
+<th:block th:fragment="content">
+    <main>
+        <style>
+            /* - 友链列表 */
+            .link-friend {
+                padding: 1em;
+                display: block;
+                margin-top: 2em;
+                text-align: center;
+                border-radius: 4px;
+                background: #fff;
+                background: var(--light-background);
+                border: 1px solid #ddd;
+                border-color: var(--border);
+                transition: border-color .3s, background-color .3s;
+            }
+
+            .link-friend,
+            .link-friend:hover {
+                color: inherit !important
+            }
+
+            .link-friend h4 {
+                margin-bottom: .2em
+            }
+
+            .link-friend p {
+                opacity: .5;
+                font-size: .85em;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .link-friend img {
+                display: block;
+                max-width: 5em;
+                width: 80px;
+                height: 80px;
+                text-align: center;
+                border-radius: 100%;
+                margin: -3em auto .5em auto;
+                transition: transform .3s, filter .3s;
+            }
+
+            .link-friend:hover img {
+                transform: rotate(1turn)
+            }
+
+
+            h2.links-team:before {
+                content: "#";
+                color: #6f9fc7;
+                color: var(--blue);
+                margin-right: .5em;
+            }
+
+            h2.links-team {
+                margin-top: 3rem;
+                scroll-margin-top: 5em;
+            }
+        </style>
+        <div class="wrap min">
+            <section class="page-title">
+                <h1>链接</h1>
+            </section>
+
+            <section>
+
+                <section>
+                    <th:block th:each="group : ${groups}">
+
+                        <h2 class="links-team" th:text="${group.spec.displayName}"></h2>
+                        <ul>
+                            <div class="row">
+
+                                <div class="col-6 col-m-4" th:each="link : ${group.links}">
+                                    <a class="link-friend" target="_blank" th:href="${link.spec.url}">
+                                        <img th:src="${link.spec.logo}" th:alt="${link.spec.displayName}">
+                                        <h4 th:text="${link.spec.displayName}"></h4>
+                                        <p th:text="${link.spec.description}"></p>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </th:block>
+                </section>
+
+            </section>
+        </div>
+    </main>
+
+
+</th:block>
+
+</html>

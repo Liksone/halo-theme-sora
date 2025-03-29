@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN" th:fragment="html (title,head,content)">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<meta property="og:site_name" th:attr="content= ${site.title}" />-->
+    <title th:text="${title}"></title>
+    <!-- <link rel="icon" th:href="@{${site.logo}}" sizes="192x192" /> -->
+
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  th:href="@{/assets/css/kico.css?v={version}(version=${theme.spec.version})}"-->
+    <!--/>-->
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  th:href="@{/assets/css/hingle.css?v={version}(version=${theme.spec.version})}"-->
+    <!--/>-->
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"-->
+    <!--/>-->
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/main.css?v={version}(version=${theme.spec.version})}"
+    />
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+    <!--/>-->
+
+    <!--<script-->
+    <!--  th:src="@{/assets/dist/main.iife.js(v=${theme.spec.version})}"-->
+    <!--></script>-->
+    <script th:inline="javascript">
+      var isPost = false;
+      //获取主题配置
+      var ThemeConfig = {};
+      ThemeConfig['night'] = /*[[${theme.config.genernal.night}]]*/;
+      ThemeConfig['copyright'] = /*[[${theme.config.genernal.copyright}]]*/;
+    </script>
+
+    <!--页面自定义 head 判断-->
+    <!--<th:block th:if="${head != null}">-->
+    <!--  <th:block th:replace="${head}" />-->
+    <!--</th:block>-->
+  </head>
+
+  <body>
+    <th:block th:replace="~{module/header}" />
+
+    <th:block th:replace="${content}" />
+
+    <th:block th:replace="~{module/footer}" />
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<div class="home-social" th:with="social_medias = ${theme.config.social.social_media}">
+    <th:block th:each="social_media : ${social_medias}">
+
+        <th:block th:switch="${social_media.social_type}">
+            <a th:case="'email'" href="mailto:${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a th:case="'github'" href="${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-github"></i>
+            </a>
+            <a th:case="'weibo'" href="https://weibo.com/${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-weibo"></i>
+            </a>
+            <a th:case="'qq'" href="tencent://message/?uin=${social_media.url}&Site=&Menu=yes"
+                title="${social_media.name}">
+                <i class="fa fa-qq"></i>
+            </a>
+            <a th:case="'telegram'" href="https://t.me/${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-telegram"></i>
+            </a>
+            <a th:case="'twitter'" href="https://twitter.com/${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a th:case="'facebook'" href="https://www.facebook.com/${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a th:case="'instagram'" href="https://www.instagram.com/${social_media.url}" title="${social_media.name}">
+                <i class="fa fa-instagram"></i>
+            </a>
+        </th:block>
+
+        <th:block th:if="${theme.config.social.RSS}">
+            <a href="/rss.xml" title="RSS">
+                <i class="fa fa-rss"></i>
+            </a>
+        </th:block>
+
+    </th:block>
+</div>

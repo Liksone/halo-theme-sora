@@ -1,0 +1,22 @@
+<!doctype html>
+<div th:fragment="pagination(component)" th:if="@{${component.totalPages}} > 1" class="pagination">
+  <a
+    th:if="${component.hasPrevious()}"
+    th:href="@{${component.prevUrl}}"
+    rel="prev"
+  >
+    <span class="iconify-middle icon-[material-symbols--chevron-left-rounded]"></span>
+  </a>
+  <span class="page-number">
+    Page [[${component.page}]] of [[${component.totalPages}]]
+  </span>
+  <a
+    th:if="${component.hasNext()}"
+    th:href="@{${component.nextUrl}}"
+    rel="next"
+  >
+    <span
+      class="iconify-middle icon-[material-symbols--chevron-right-rounded]"
+    ></span>
+  </a>
+</div>

@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- <html th:fragment="html"> -->
+<head th:fragment="head(title)">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title
+    th:text="${title} ?: ${post.spec.title} + ' | ' + ${site.title}"
+  ></title>
+
+  <link
+    rel="stylesheet"
+    th:href="@{/assets/dist/main.css(v=${theme.spec.version})}"
+  />
+  <!-- <link -->
+  <!--   rel="stylesheet" -->
+  <!--   th:href="@{/assets/dist/main.css(v=${#strings.randomAlphanumeric(10)})}" -->
+  <!-- /> -->
+
+  <script
+    th:src="@{/assets/dist/main.iife.js(v=${theme.spec.version})}"
+  ></script>
+  <!-- <script
+    th:src="@{/assets/dist/main.iife.js(v=${#strings.randomAlphanumeric(10)})}"
+  ></script> -->
+</head>
+
+<!-- <body> -->
+<!--   <th:block th:replace="~{module/header}" /> -->
+<!---->
+<!--   <th:block th:replace="${content}" /> -->
+<!---->
+<!--   <th:block th:replace="~{module/footer}" /> -->
+<!-- </body> -->
+<!-- </html> -->

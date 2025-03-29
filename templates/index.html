@@ -1,0 +1,106 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="~{module/layout :: head(title=${site.title})}"> </head>
+
+  <body>
+    <header>
+      <div class="mt-20 mb-20 flex items-center justify-center">
+        <img
+          th:src="@{/assets/images/Avatar.jpg}"
+          class="mr-14 h-40 rounded-full filter-none"
+          alt="Avatar"
+        />
+
+        <div class="text-center font-mono">
+          <div class="text-4xl" th:text="${site.title}"></div>
+          <div class="mt-5">
+            <span
+              class="iconify-large icon-[material-symbols--mail-outline-rounded]"
+            ></span>
+            <span class="iconify-large icon-[mdi--github]"></span>
+          </div>
+          <nav class="mt-5">
+            <a class="index-nav" href="/archives">归档</a>
+            <a class="index-nav" href="/categories">分类</a>
+            <a class="index-nav" href="/tags">标签</a>
+            <a class="index-nav" href="/about">关于</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="mx-auto max-w-[768px]">
+      <div class="mb-6 ml-4 text-2xl">Recent Posts</div>
+
+      <div class="flex flex-col gap-5">
+        <a
+          th:each="post : ${posts.items}"
+          th:href="@{${post.status.permalink}}"
+          class="index-post-card hover:shadow-card text-black no-underline transition duration-300"
+        >
+          <img
+            th:if="${!#strings.isEmpty(post.spec.cover)}"
+            th:src="${post.spec.cover}"
+            class="cover"
+          />
+
+          <div class="post mx-4 my-4 flex flex-col gap-2">
+            <!-- 标题 -->
+            <div
+              th:text="${post.spec.title}"
+              class="textc-primary test font-semibold"
+              style="font-size: 1.2rem"
+            ></div>
+
+            <!-- 摘要 -->
+            <div
+              th:if="${#strings.isEmpty(post.spec.cover)}"
+              th:text="${post.status.excerpt != null and #strings.length(post.status.excerpt) > 150} ? ${#strings.substring(post.status.excerpt, 0, 150)} + '...' : ${post.status.excerpt}"
+              style="font-size: 0.9rem"
+              class="text-gray-600"
+            ></div>
+            <div
+              th:if="${!#strings.isEmpty(post.spec.cover)}"
+              th:text="${post.status.excerpt != null and #strings.length(post.status.excerpt) > 80} ? ${#strings.substring(post.status.excerpt, 0, 80)} + '...' : ${post.status.excerpt}"
+              style="font-size: 0.9rem"
+              class="text-gray-600"
+            ></div>
+
+            <!-- 元信息 -->
+            <div
+              class="flex items-center justify-between"
+              style="font-size: 0.8rem"
+            >
+              <time
+                th:text="${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}"
+                class="text-gray-600"
+              ></time>
+              <!-- 分类
+            <span
+              th:if="${not #lists.isEmpty(post.categories)}"
+              th:each="category : ${post.categories}"
+              class="category"
+              th:text="${category.spec.displayName}"
+            ></span> -->
+
+              <!-- Read More -->
+              <!-- <div class="h-100% flex items-center"> -->
+              <!-- <span class="textc-primary mr-0.5">Read More</span>
+            <div
+              class="i-material-symbols:arrow-right-alt-rounded textc-primary mt-0.5"
+            ></div> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <th:block
+      th:replace="~{module/pagination :: pagination(component=${posts})}"
+    >
+    </th:block>
+
+    <footer th:replace="~{module/footer}"></footer>
+  </body>
+</html>

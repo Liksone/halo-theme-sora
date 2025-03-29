@@ -1,0 +1,15 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-sora
+spec:
+  displayName: Sora
+  author:
+    name: Liks
+    website: https://blog.liks.space
+  # description: 🎈 一个简洁大气，含夜间模式的 halo 博客主题
+  # logo: http://cdn.sep.cc/avatar/e2d1f9c5da125994d7bf02c691e3124a?s=256&d=identicon
+  repo: https://github.com/Liksone/halo-theme-sora.git
+  settingName: "theme-sora-setting"
+  version: 0.1.0
+  requires: ">=2.20.0"
