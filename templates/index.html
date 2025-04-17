@@ -14,10 +14,39 @@
         <div class="text-center font-mono">
           <div class="text-4xl" th:text="${site.title}"></div>
           <div class="mt-5">
-            <span
-              class="iconify-large icon-[material-symbols--mail-outline-rounded]"
-            ></span>
-            <span class="iconify-large icon-[mdi--github]"></span>
+          <th:block th:each="social : ${theme.config.social?.social_media}">
+            <a th:with="
+              urlPrefix=${social.name == 'email' ? 'mailto:' : 
+                        social.name == 'github' ? 'https://github.com/' : 
+                        social.name == 'bilibili' ? 'https://space.bilibili.com/' : 
+                        social.name == 'zhihu' ? 'https://www.zhihu.com/people/' :
+                        social.name == 'qq' ? 'https://user.qzone.qq.com/' :
+                        social.name == 'weibo' ? 'https://weibo.com/' :
+                        social.name == 'telegram' ? 'https://t.me/' :
+                        social.name == 'facebook' ? 'https://www.facebook.com/' :
+                        social.name == 'instagram' ? 'https://www.instagram.com/' :
+                        social.name == 'twitter' ? 'https://twitter.com/' :
+                        social.name == 'gitee' ? 'https://gitee.com/' :
+                        social.name == 'xiaohongshu' ? 'https://www.xiaohongshu.com/user/profile/' : ''},
+              iconClass=${social.name == 'email' ? 'material-symbols--mail-outline-rounded' : 
+                         social.name == 'github' ? 'mdi--github' : 
+                         social.name == 'bilibili' ? 'ri--bilibili-fill' : 
+                         social.name == 'zhihu' ? 'ri--zhihu-line' :
+                         social.name == 'qq' ? 'mdi--qqchat' :
+                         social.name == 'weibo' ? 'ri--weibo-line' :
+                         social.name == 'telegram' ? 'ri--telegram-line' :
+                         social.name == 'facebook' ? 'ri--facebook-line' :
+                         social.name == 'instagram' ? 'ri--instagram-line' :
+                         social.name == 'twitter' ? 'ri--twitter-x-line' :
+                         social.name == 'gitee' ? 'simple-icons--gitee' :
+                         social.name == 'xiaohongshu' ? 'simple-icons--xiaohongshu' : ''}"
+              th:href="${urlPrefix} + ${social.url}" th:title="${social.name}" target="_blank" class="social-icon">
+              <span th:classappend="'iconify-large icon-[' + ${iconClass} + ']'"></span>
+            </a>
+          </th:block>
+          <a th:if="${theme.config.social?.RSS == 1}" href="/rss.xml" title="RSS" target="_blank" class="social-icon">
+            <span class="iconify-large icon-[ri--rss-line]"></span>
+          </a>
           </div>
           <nav class="mt-5">
             <a class="index-nav" href="/archives">归档</a>
