@@ -543,6 +543,9 @@ spec:
               value: 1
             - label: 关闭
               value: 0
+        - $formkit: text
+          name: avatar
+          label: 头像URL
     - group: social
       label: 社交链接
       formSchema:
