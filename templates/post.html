@@ -120,7 +120,10 @@
           <div th:text="${post.spec.title}"></div>
           <div
             class="license-item mt-1"
-            th:text="${site.url} + ${post.status.permalink}"
+            th:with="cleanedUrl=${#strings.endsWith(site.url, '/')
+              ? #strings.substring(site.url, 0, #strings.length(site.url)-1)
+              : site.url}"
+            th:text="${cleanedUrl + post.status.permalink}"
           ></div>
 
           <div class="mt-3 gap-12 sm:flex">
