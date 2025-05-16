@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{module/macro :: html(title = '链接 - ' +  ${site.title}, head=null, content = ~{::content})}">
-
-<th:block th:fragment="content">
+<html lang="zh-CN" xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="~{module/head(title = '链接' + ' | ' + ${site.title})}">
+  </head>
+  <body>
+    <header th:replace="~{module/header}"></header>
     <main>
         <style>
             /* - 友链列表 */
@@ -70,14 +71,11 @@
             </section>
 
             <section>
-
                 <section>
                     <th:block th:each="group : ${groups}">
-
                         <h2 class="links-team" th:text="${group.spec.displayName}"></h2>
                         <ul>
                             <div class="row">
-
                                 <div class="col-6 col-m-4" th:each="link : ${group.links}">
                                     <a class="link-friend" target="_blank" th:href="${link.spec.url}">
                                         <img th:src="${link.spec.logo}" th:alt="${link.spec.displayName}">
@@ -85,17 +83,13 @@
                                         <p th:text="${link.spec.description}"></p>
                                     </a>
                                 </div>
-
                             </div>
                         </ul>
                     </th:block>
                 </section>
-
             </section>
         </div>
     </main>
-
-
-</th:block>
-
+    <footer th:replace="~{module/footer}"></footer>
+  </body>
 </html>
