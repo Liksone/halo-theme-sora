@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="~{module/head(title = '瞬间' + ' | ' + ${site.title})}">
+  </head>
+
+  <body>
+    <header th:replace="~{module/header}"></header>
+
+    <main class="mx-auto max-w-[780px]">
+      <h1 class="mb-8 text-center font-serif">瞬间</h1>
+
+      <!-- 瞬间列表 -->
+      <div class="flex flex-col gap-6">
+        <th:block th:each="moment : ${moments.items}">
+          <div class="card p-6 hover:shadow-card transition duration-300">
+            <div class="flex flex-col gap-2">
+              <!-- 内容 -->
+              <div th:utext="${moment.spec.content.html}" class="line-height-1.8"></div>
+              
+              <!-- 时间 -->
+              <div class="mt-2 text-right">
+                <time
+                  class="font-mono text-[#666] text-sm"
+                  th:datetime="${moment.spec.releaseTime}"
+                  th:text="${#dates.format(moment.spec.releaseTime,'yyyy-MM-dd')}"
+                ></time>
+              </div>
+            </div>
+          </div>
+        </th:block>
+      </div>
+
+      <!-- 分页 -->
+      <th:block th:replace="~{module/pagination(component=${moments})}"></th:block>
+    </main>
+
+    <footer th:replace="~{module/footer}"></footer>
+  </body>
+</html>
