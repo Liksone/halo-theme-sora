@@ -19,7 +19,7 @@
           <!-- 社交媒体 -->
           <div class="text-center">
             <th:block th:each="item : ${theme?.config?.social?.socials}">
-              <a class="text-black" th:href="@{${item.url}}">
+              <a class="text-black" th:href="${item.name == 'email' ? 'mailto:' + item.url : item.url}">
                 <span
                   class="iconify-large"
                   th:classappend="${{
