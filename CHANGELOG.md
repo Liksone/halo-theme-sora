@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.5.14](https://github.com/Liksone/halo-theme-sora/compare/v0.5.13...v0.5.14) (2025-05-16)
+
+
+### ✨ Features
+
+* 添加对瞬间和链接的支持 ([6b8d9d5](https://github.com/Liksone/halo-theme-sora/commit/6b8d9d5598520a29c9912ffbf447c6a12b31a4f7)), closes [#8](https://github.com/Liksone/halo-theme-sora/issues/8) [#15](https://github.com/Liksone/halo-theme-sora/issues/15) [#17](https://github.com/Liksone/halo-theme-sora/issues/17) [#23](https://github.com/Liksone/halo-theme-sora/issues/23) [#26](https://github.com/Liksone/halo-theme-sora/issues/26)
+
+
+### 🐞 Bug Fixes
+
+* **分类页 & 标签页:** 修复标题与文章列表过近的间距 ([066bdf0](https://github.com/Liksone/halo-theme-sora/commit/066bdf0218f151b2dd7c31d20cdd0144b1a9d7c3))
+
+
+### 🌈 Style
+
+* 格式化 ([99aedd7](https://github.com/Liksone/halo-theme-sora/commit/99aedd78b82142697acfa9bf844d308cc2795991))
+
 ## [0.5.13](https://github.com/Liksone/halo-theme-sora/compare/v0.5.12...v0.5.13) (2025-05-15)
 
 

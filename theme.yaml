@@ -13,7 +13,7 @@ spec:
   issues: https://github.com/Liksone/halo-theme-sora/issues
   settingName: theme-sora-setting
   configMapName: theme-sora-configmap
-  version: 0.5.13
+  version: 0.5.14
   requires: '>=2.20.0'
   license:
     - name: GPLv3
