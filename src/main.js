@@ -1,4 +1,7 @@
 import "./main.css";
+import hljs from "highlight.js";
+import "highlight.js/styles/github.css"; // 主题
+
 //import "./test/lapis.css";
 
 export * from "./TOC.js";
@@ -38,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "noopener");
   });
+
+  hljs.highlightAll();
 });
 
 // 字数统计 + 预计阅读时间

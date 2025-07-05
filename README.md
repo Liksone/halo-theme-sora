@@ -20,6 +20,7 @@
 - [银色星球](https://blog.sss.wiki)
 - [个人博客](https://zdbxll.cn)
 - [禧语许](https://www.bytecanvas.top)
+- [George.Ji](https://blog.georgeji.com/)
 
 # 设计思路
 

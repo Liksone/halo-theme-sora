@@ -253,7 +253,6 @@
     /* padding: 0.2rem 0.4rem; */
     border-radius: 6px;
     font-family: var(--font-mono);
-    background-color: var(--color-bg2);
   }
 
   pre {
@@ -263,6 +262,12 @@
     border-radius: 8px;
     /* overflow-x: auto; */
     white-space: pre-wrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+  pre:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
 
   /* pre > code {
