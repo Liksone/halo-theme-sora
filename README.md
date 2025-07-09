@@ -1,5 +1,5 @@
 > [!NOTE]
-> 本项目已不再活跃，若对本主题感兴趣，欢迎使用静态框架 Astro 的[重构版本](https://github.com/Liksone/astro-theme-sora)。
+> 本项目不再活跃，若对本主题感兴趣，欢迎使用静态框架 Astro 的[重构版本](https://github.com/Liksone/astro-theme-sora)。
 
 <h1 align="center">Sora</h1>
 
@@ -207,6 +207,10 @@ Halo 没有内建目录支持，于是通过 JavaScript 从 HTML 提取标题来
 ![](./docs/image9.png)
 
 采用与文章页一致的排版。
+
+# 开发
+
+使用 Vite 构建静态资源（CSS、JS），输出到 `templates/assets/dist/`，然后通过 Browsersync 监听 `templates/` 变化自动刷新浏览器实现热重载。
 
 # 致谢
 
